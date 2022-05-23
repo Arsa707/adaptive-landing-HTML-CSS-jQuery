@@ -120,6 +120,8 @@ font-family: 'Open Sans', sans-serif;
 	&__menu {
 		margin: 0 auto 119px auto;
 		max-width: 690px;
+	}
+	&__list{
 		display: flex;
 		justify-content: space-between;
 	}
@@ -136,7 +138,8 @@ font-family: 'Open Sans', sans-serif;
 	}
 
 	&__item {
-		border: 1px solid #000;
+		position: relative;
+		z-index: 1;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -147,8 +150,46 @@ font-family: 'Open Sans', sans-serif;
 		width: 100%;
 
 		& img {
+			position: absolute;
+			z-index: 0;
+			bottom: 0;
 			object-fit: cover;
+			height: 100%;
 		}
+	}
+
+	&__description {
+		opacity: 0;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		z-index: 1;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(0, 0, 0, 0.85);
+		transition: 0.5s;
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&__label{
+		font-size: 20px;
+		line-height: 22px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		color: #ffffff;
+	}
+
+	&__text{
+		font-size: 15px;
+		line-height: 22px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		color: #ffffff;
 	}
 }
 
@@ -265,12 +306,12 @@ font-family: 'Open Sans', sans-serif;
 		height: 105px;
 		background-color: #3949ab;
 		border-radius: 100%;
+		&:hover {
+			animation: circle 0.4s linear 0s;
+		}
 	}
 
-	&__icon {
-		height: 62px;
-		width: 44px;
-	}
+	&__icon {}
 
 	&__text {
 		text-align: center;
@@ -284,83 +325,16 @@ font-family: 'Open Sans', sans-serif;
 	&__feedback {}
 }
 
-.feedback {
-
-	&__row {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		margin: -15px -15px -15px -15px;
-		
-	}
-
-	&__name {
-		margin: 15px 15px;
-		padding: 20px;
-		max-width: 500px;
-		width: 100%;
-		height: 84px;
-		border-radius: 10px;
-		font-size: 20px;
-		line-height: 28px;
-		font-weight: 600;
-		letter-spacing: 0.05em;
-		color: #212121;
-	}
-
-	&__email {
-		margin: 15px 15px;
-		padding: 20px;
-		max-width: 500px;
-		width: 100%;
-		height: 84px;
-		border-radius: 10px;
-		font-size: 20px;
-		line-height: 28px;
-		font-weight: 600;
-		letter-spacing: 0.05em;
-		color: #212121;
-	}
-
-	&__message {
-		resize: none;
-		padding: 20px;
-		max-width: 1030px;
-		width: 100%;
-		height: 324px;
-		border-radius: 10px;
-		margin: 30px 0px 40px 0px;
-		font-size: 20px;
-		line-height: 28px;
-		font-weight: 600;
-		letter-spacing: 0.05em;
-		color: #212121;
-	}
-	&__wrapper-btn{
-		display: flex;
-		justify-content: right;
-	}
-	&__btn{
-		background-color: #fff;
-		border-radius: 10px;
-		width: 220px;
-		height: 70px;
-		font-size: 20px;
-		line-height: 28px;
-		font-weight: 600;
-		letter-spacing: 0.05em;
-		color: #212121;
-	}
-}
-
 .footer {
-	padding: 20px 10px;
-	text-align: center;
-	font-size: 20px;
-	line-height: 22px;
-	font-weight: 700;
-	letter-spacing: 0.05em;
-	color: #212121;
+	&__text{
+		padding: 20px 10px;
+		text-align: center;
+		font-size: 20px;
+		line-height: 22px;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		color: #212121;
+	}
 }
 
 
@@ -379,16 +353,30 @@ font-family: 'Open Sans', sans-serif;
 
 // Целиковые блоки
 .menu {
-	display: flex;
-	min-width: 660px;
-	justify-content: space-between;
-
+	&__list{
+		display: flex;
+		min-width: 660px;
+		justify-content: space-between;
+	}
 	&__item {
+		position: relative;
 		font-size: 20px;
 		line-height: 22px;
 		font-weight: 600;
 		letter-spacing: 0.05em;
 		color: #212121;
+		&:hover{
+			&:after{
+				animation: border 0.2s ease 0s 1 normal none;
+				content: '';
+				position: absolute;
+				bottom: -5px;
+				left: 10%;
+				height: 2px;
+				background-color: rgba(0, 0, 0, 0.6);
+				width: 80%;
+			}
+		}
 	}
 }
 
@@ -402,6 +390,7 @@ font-family: 'Open Sans', sans-serif;
 	border: 2px solid #212121;
 	text-align: center;
 	background-color: transparent;
+	transition: 0.2s;
 
 	&--large {
 		display: block;
@@ -413,6 +402,17 @@ font-family: 'Open Sans', sans-serif;
 
 	&--original {
 		width: 100px;
+	}
+
+	&:hover {
+		
+		background-color: #00897b;
+		color: #ffffff;
+		border: 2px solid #00897b;
+	}
+	&:active {
+		background-color: rgba(0, 137, 123, 0.5);
+		border: 2px solid rgba(0, 137, 123, 0.1);
 	}
 }
 
@@ -457,6 +457,9 @@ font-family: 'Open Sans', sans-serif;
 	justify-content: center;
 
 	&__icon {
+		&:hover {
+			animation: vision 0.4s linear 0s infinite alternate none;
+		}
 		margin: 0px 0px 29px 0px;
 	}
 
@@ -713,14 +716,106 @@ font-family: 'Open Sans', sans-serif;
 
 .icons {
 	&__item {
+		transition: all 0.2s linear;
 		display: flex;
 		width: 50px;
 		height: 50px;
 		overflow: hidden;
 		& img {}
+
+		&:hover{
+			transition: border-radius 0.3s ease-in-out;
+			border-radius: 100%;
+		}
+		&:active {
+			transition: all 0.1s ease-in-out;
+			width: 46px;
+			height: 46px;
+			margin: 2px;
+		}
 	}
 }
 
+.feedback {
+
+	&__row {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: -15px -15px -15px -15px;
+	}
+
+	&__name {
+		margin: 15px 15px;
+		padding: 20px;
+		max-width: 500px;
+		width: 100%;
+		height: 84px;
+		border-radius: 10px;
+		font-size: 20px;
+		line-height: 28px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		color: #212121;
+	}
+
+	&__email {
+		margin: 15px 15px;
+		padding: 20px;
+		max-width: 500px;
+		width: 100%;
+		height: 84px;
+		border-radius: 10px;
+		font-size: 20px;
+		line-height: 28px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		color: #212121;
+	}
+
+	&__message {
+		resize: none;
+		padding: 20px;
+		max-width: 1030px;
+		width: 100%;
+		height: 324px;
+		border-radius: 10px;
+		margin: 30px 0px 40px 0px;
+		font-size: 20px;
+		line-height: 28px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		color: #212121;
+	}
+
+	&__wrapper-btn {
+		display: flex;
+		justify-content: right;
+	}
+
+	&__btn {
+		transition: 0.3s;
+		background-color: #fff;
+		border-radius: 10px;
+		width: 220px;
+		height: 70px;
+		font-size: 20px;
+		line-height: 28px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		color: #212121;
+
+		&:hover {
+			color: #fff;
+			background: rgba(255, 255, 255, 0.7);
+			border: 2px solid rgba(255, 255, 255, 0.3);
+		}
+		&:active {
+			background: rgba(255, 255, 255, 0.2);
+			border: 2px solid rgba(255, 255, 255, 0.1);
+		}
+	}
+}
 
 
 
@@ -767,5 +862,40 @@ font-family: 'Open Sans', sans-serif;
 				order:1;
 			}
 		}
+	}
+}
+
+
+
+
+
+// Анимация
+@keyframes circle {
+	0% {
+		transform: rotate(0deg);
+	}
+	
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes vision {
+	0%{
+		opacity: 1;
+	}
+
+	100%{
+		opacity: 0.3;
+	}
+}
+
+@keyframes border {
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 80%;
 	}
 }
