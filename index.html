@@ -30,7 +30,7 @@
 						</div>
 						<nav class="header__menu menu">
 							<ul class="menu__list">
-								<li class="menu__item"><a href="#">Home</a></li>
+								<li class="menu__item"><a href="#home">Home</a></li>
 								<li class="menu__item"><a href="#about">About</a></li>
 								<li class="menu__item"><a href="#servicing">Servicing</a></li>
 								<li class="menu__item"><a href="#portfolio">Portfolio</a></li>
@@ -45,29 +45,25 @@
 
 
 			<!-- main начало -->
-			<!-- <div class="main">
-				<div class="main__bg">
-						<img src="img/main/main_bg.jpg" alt="">
-				</div>
+			<section id="home" class="main">
+				<img class="main__bg" src="img/main/main_bg.jpg" alt="">
 				<div class="container">
-					<div class="main__inner">
+					<div class="main__body">
 						<div class="main__title">Web development project</div>
 						<div class="main__subtitle">Very suitable to support all web development projects</div>
 						<ul class="main__links">
-							<li class="main__link link "><a href="#">OUR SERVICES</a></li>
-							<li class="main__link main__link--original link"><a href="#">HIRE IS NOW</a></li>
+							<li class="main__link link link--colored"><a href="#">OUR SERVICES</a></li>
+							<li class="main__link link link--colored"><a href="#">HIRE IS NOW</a></li>
 						</ul>
-						<div class="main__arrow">
-							<a href=""><img src="img/main/arrow.png" alt=""></a>
-						</div>
+						<a class="main__arrow" href="#about"><img src="img/main/arrow.png" alt=""></a>
 					</div>
 				</div>
-			</div> -->
+			</section>
 			<!-- /main конец -->
 
 
 			<!-- about начало -->
-			<div id="about" class="about">
+			<section id="about" class="about">
 				<div class="container">
 					<div class="about__title title">
 						<h2 class="title__label">About us</h2>
@@ -97,12 +93,12 @@
 							</div>
 						</div>
 					</div>
-			</div>
+			</section>
 			<!-- /about конец -->
 
 
 			<!-- our-services начало -->
-			<div id="servicing" class="our-services">
+			<section id="servicing" class="our-services">
 				<div class="container">
 						<div class="our-services__title title">
 							<h2 class="title__label">Our Services</h2>
@@ -159,18 +155,24 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 			<!-- /our-services конец -->
 
 
 			<!-- latest-works начало-->
-			<div id="portfolio" class="latest-works">
+			<section id="portfolio" class="latest-works">
 				<div class="container">
 					<div class="latest-works__title title">
 						<h2 class="title__label">Latest Works</h2>
 						<p class="title__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
 					</div>
-					<nav class="latest-works__tabs">
+					<nav class="latest-works__menu">
+						<select class="latest-works__select">
+							<option class="latest-works__option">ALL</option>
+							<option class="latest-works__option">WEB DESIGN</option>
+							<option class="latest-works__option">UI/UX DESIGN</option>
+							<option class="latest-works__option">MOCKUPS</option>
+						</select>
 						<ul class="latest-works__list">
 							<li class="latest-works__link link link--original "><a href="#">ALL</a></li>
 							<li class="latest-works__link link"><a href="#">WEB DESIGN</a></li>
@@ -224,12 +226,12 @@
 					</div>
 					<a href="" class="latest-works__link link link--large">VIEW ALL</a>
 				</div>
-			</div>
+			</section>
 			<!-- /latest-works конец -->
 
 
 			<!-- pricing-plan начало-->
-			<div class="pricing-plan">
+			<section class="pricing-plan">
 				<div class="container">
 						<div class="pricing-plan__title title">
 							<h2 class="title__label">Pricing Plan</h2>
@@ -289,12 +291,12 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 			<!-- /pricing plan конец -->
 
 
 			<!-- team начало -->
-			<div class="team">
+			<section class="team">
 				<div class="container">
 						<h2 class="team__title title">
 							<div class="title__label">Our Team Member</div>
@@ -422,12 +424,12 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 			<!-- /team конец -->
 
 
 			<!-- blog начало -->
-			<div id="blog" class="blog">
+			<section id="blog" class="blog">
 				<div class="container">
 						<div class="blog__title title">
 							<h2 class="title__label">Blog</h2>
@@ -478,12 +480,12 @@
 					</div>
 					<a href="#" class="blog__link link link--large"> MORE VIEW</a>
 				</div>
-			</div>
+			</section>
 			<!-- /blog конец -->
 
 
 			<!-- contact-us начало-->
-			<div id="contact-us" class="contact-us">
+			<section id="contact-us" class="contact-us">
 				<div class="container">
 					<div class="contact-us__inner">
 							<div class="contact-us__title title">
@@ -525,7 +527,7 @@
 						</form>
 					</div>
 				</div>
-			</div>
+			</section>
 			<!-- Contact-us конец -->
 
 
