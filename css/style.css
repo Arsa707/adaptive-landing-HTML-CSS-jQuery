@@ -736,18 +736,14 @@ body {
 }
 
 .slider__row {
+  position: relative;
   margin: -50px -12px 40px -12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .slider__column {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 50px 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -775,6 +771,7 @@ body {
 
 .slider__title {
   margin: 0px 0px 6px 0px;
+  width: 370px;
   text-align: center;
   font-size: 20px;
   line-height: 22px;
@@ -784,6 +781,10 @@ body {
 }
 
 .slider__subtitle {
+  width: 370px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   text-align: center;
   font-size: 15px;
   line-height: 22px;
@@ -794,6 +795,7 @@ body {
 }
 
 .slider__icons {
+  width: 370px;
   padding: 0px 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1084,3 +1086,60 @@ body {
     width: 80%;
   }
 }
+
+/* Слайдер */
+/* Слайдер запущен */
+/* Слайдер с точками */
+/* Ограничивающая оболочка */
+.slick-list {
+  overflow: hidden;
+}
+
+/* Лента слайдов */
+.slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Слайд */
+/* Слайд активный (показывается) */
+/* Слайд основной */
+/* Слайд по центру */
+/* Клонированный слайд */
+/* Стрелка */
+/* Стрелка влево */
+/* Стрелка вправо */
+/* Стрелка не активная */
+/* Точки (булиты) */
+.slick-dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.slick-dots li {
+  margin: 0 10px;
+}
+
+/* Активная точка */
+.slick-dots li.slick-active button {
+  background-color: #3949ab;
+}
+
+/* Элемент точки */
+.slick-dots li button {
+  font-size: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #00897b;
+  border-radius: 50%;
+}
+
+/* Конкретный слайдер */
