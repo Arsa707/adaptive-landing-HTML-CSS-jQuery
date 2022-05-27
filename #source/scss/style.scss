@@ -1,7 +1,9 @@
 
 // Обнуление стилей
 @import "nullstyle.scss";
-
+a {
+	color: #000 !important;
+}
 
 
 
@@ -29,21 +31,45 @@ font-family: 'Open Sans', sans-serif;
 }
 
 .header {
-
-	&__inner {
-		padding: 47px 0px 47px 0px;
+	width: 100%;
+	position: fixed;
+	z-index: 50;
+	&__body {
+		position: relative;
+		height: 70px;
+		align-items: center;
 		display: flex;
 		justify-content: space-between;
 	}
 
 	&__logo {
+		position: relative;
+		z-index: 2;
 		font-size: 25px;
 		line-height: 22px;
 		font-weight: 700;
 		color: #212121;
 	}
 
-	&__menu {}
+	&__burger{
+		display: none;
+	}
+
+	&__menu {
+		z-index: 2;
+		position: relative;
+	}
+
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+		background-color: #245661;
+	}
 }
 
 .main {
@@ -122,6 +148,7 @@ font-family: 'Open Sans', sans-serif;
 		max-width: 690px;
 	}
 	&__list{
+		flex-wrap: wrap;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -359,23 +386,15 @@ font-family: 'Open Sans', sans-serif;
 		justify-content: space-between;
 	}
 	&__item {
+		margin: 0px 0px 0px 20px;
 		position: relative;
 		font-size: 20px;
 		line-height: 22px;
 		font-weight: 600;
 		letter-spacing: 0.05em;
 		color: #212121;
-		&:hover{
-			&:after{
-				animation: border 0.2s ease 0s 1 normal none;
-				content: '';
-				position: absolute;
-				bottom: -5px;
-				left: 10%;
-				height: 2px;
-				background-color: rgba(0, 0, 0, 0.6);
-				width: 80%;
-			}
+		&:hover {
+			text-shadow: 1px 1px 1.5px rgba($color: black, $alpha: 0.5);
 		}
 	}
 }
@@ -458,7 +477,7 @@ font-family: 'Open Sans', sans-serif;
 
 	&__icon {
 		&:hover {
-			animation: vision 0.4s linear 0s infinite alternate none;
+			animation: circle 0.4s linear 0s;
 		}
 		margin: 0px 0px 29px 0px;
 	}
@@ -851,7 +870,86 @@ font-family: 'Open Sans', sans-serif;
 
 // Малые девайсы («ландшафтные», < 768px)
 @media (max-width: 767.98px) {
+	body.lock {
+		overflow: hidden;
+	}
 
+	.header {
+		&__body{
+			height: 50px;
+		}
+
+		&__menu{
+			overflow: auto;
+			z-index: 1;
+			position: fixed;
+			top: -200%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #9cddd2;
+			padding: 70px 0px 20px 10px;
+			&.active {
+				top: 0;
+				transition: all 0.3s ease 0s;
+			}
+		}
+		&__burger{
+			display: block;
+			position: relative;
+			z-index: 3;
+			width: 30px;
+			height: 20px;
+			& span {
+				background-color: #fff;
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				top: 9px;
+				transition: all 0.3s ease 0s;
+			}
+			&:before,
+			&:after {
+				content: '';
+				background-color: #fff;
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				left: 0;
+				transition: all 0.3s ease 0s;
+			}
+			&:before {
+				top: 0;
+			}
+			&:after {
+				bottom: 0;
+			}
+			&.active:before {
+				transform: rotate(45deg);
+				top: 9px;
+			}
+			&.active:after {
+				transform: rotate(-45deg);
+				bottom: 9px;
+			}
+			&.active span {
+				transform: scale(0);
+			}
+		}
+	}
+
+	.menu {
+		&__list {
+			min-width: 0;
+			display: block;
+			text-align: center;
+		}
+		&__item {
+			margin: 0px 0px 20px 0px;
+			font-size: 30px;
+		}
+	}
 }
 
 // Средние девайсы («таблетки», < 992px) 
@@ -885,26 +983,6 @@ font-family: 'Open Sans', sans-serif;
 	
 	100% {
 		transform: rotate(360deg);
-	}
-}
-
-@keyframes vision {
-	0%{
-		opacity: 1;
-	}
-
-	100%{
-		opacity: 0.3;
-	}
-}
-
-@keyframes border {
-	0% {
-		width: 0%;
-	}
-
-	100% {
-		width: 80%;
 	}
 }
 
