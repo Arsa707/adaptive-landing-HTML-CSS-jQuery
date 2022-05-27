@@ -994,7 +994,7 @@ body {
   position: absolute;
   bottom: 0;
   left: -30px;
-  background: url(/img/blog/icon1.png) no-repeat;
+  background: url(img/blog/icon1.png) no-repeat;
   width: 20px;
   height: 20px;
 }
@@ -1014,7 +1014,7 @@ body {
   position: absolute;
   bottom: 0;
   left: -30px;
-  background: url(/img/blog/icon2.png) no-repeat;
+  background: url(img/blog/icon2.png) no-repeat;
   width: 20px;
   height: 20px;
 }
