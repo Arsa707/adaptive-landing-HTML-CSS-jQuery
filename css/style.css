@@ -54,6 +54,7 @@ button::-moz-focus-inner {
 
 a, a:visited {
   text-decoration: none;
+  color: #000;
 }
 
 a:hover {
@@ -612,10 +613,6 @@ body {
   font-weight: 600;
   letter-spacing: 0.05em;
   color: #212121;
-}
-
-.menu__item a {
-  color: #000;
 }
 
 .menu__item:hover {
